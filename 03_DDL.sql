@@ -9,13 +9,13 @@
 USE optusMusic;
 -- Criamos a tabela Estilo
 CREATE TABLE Estilo(
-	IdEstilo INT PRIMARY KEY NOT NULL,
+	IdEstilo INT IDENTITY PRIMARY KEY NOT NULL,
 	Nome VARCHAR(40)
 );
 
 -- Criamos a tabela Usuario
 CREATE TABLE Usuario(
-	IdUsuario INT PRIMARY KEY NOT NULL,
+	IdUsuario INT IDENTITY PRIMARY KEY NOT NULL,
 	Nome VARCHAR(70),
 	Permissao INT NOT NULL,
 	Senha VARCHAR(20),
@@ -24,14 +24,14 @@ CREATE TABLE Usuario(
 
 -- Criamos a tabela Artista
 CREATE TABLE Artista(
-	IdArtista INT PRIMARY KEY NOT NULL,
+	IdArtista INT IDENTITY PRIMARY KEY NOT NULL,
 	IdEstilo INT FOREIGN KEY REFERENCES Estilo(IdEstilo),
 	Nome VARCHAR(70),
 );
 
 -- Criamos a tabela Album
 CREATE TABLE Album(
-	IdAlbum INT PRIMARY KEY NOT NULL,
+	IdAlbum INT IDENTITY PRIMARY KEY NOT NULL,
 	IdArtista INT FOREIGN KEY REFERENCES Artista(IdArtista),
 	Nome VARCHAR(70),
 	DataLancamento DATETIME,
@@ -43,7 +43,7 @@ CREATE TABLE Album(
 
 -- Criamos a tabela EstiloAlbum
 CREATE TABLE EstiloAlbum(
-	IdEstiloAlbum INT PRIMARY KEY NOT NULL,
+	IdEstiloAlbum INT IDENTITY PRIMARY KEY NOT NULL,
 	IdAlbum INT FOREIGN KEY REFERENCES Album(IdAlbum),
 	IdEstilo INT FOREIGN KEY REFERENCES Estilo(IdEstilo),
 );
